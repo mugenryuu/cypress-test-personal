@@ -9,8 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    credentialsId: 'github-creds', // remove if repo is public
-                    url: 'https://github.com/yourusername/your-repo.git'
+                    url: 'https://github.com/mugenryuu/cypress-test-personal.git'
             }
         }
 

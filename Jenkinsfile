@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'cypress/included:15.3.0'
-            args '-u root:root'  // run as root to install deps if needed
-        }
-    }
+    agent any
 
     tools {
         nodejs 'NodeJs'
@@ -26,7 +21,7 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                sh 'npx cypress run --browser chrome --headless'
+                sh 'xvfb-run -a npx cypress run --browser chrome --headless'
             }
         }
 

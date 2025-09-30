@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:run:ci": "cypress run --reporter mocha-junit-reporter --reporter-options mochaFile=results/junit-[hash].xml,toConsole=true"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/mugenryuu/cypress-test-personal#readme",
   "devDependencies": {
     "cypress": "^15.3.0",
+    "mocha-junit-reporter": "^2.2.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }

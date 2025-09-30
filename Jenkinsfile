@@ -1,8 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'cypress/included:15.3.0'
+            args '-u root:root'  // run as root to install deps if needed
+        }
+    }
 
     tools {
-        nodejs "NodeJs"
+        nodejs 'NodeJs'
     }
 
     stages {

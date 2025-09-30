@@ -5,6 +5,7 @@ describe("Login Page", () => {
         cy.loginBypass();
     })
 
+    
     beforeEach(() => {
         cy.readFile("cypress/fixtures/cookies.json").then((cookies) => {
             cookies.forEach((cookie: Cypress.Cookie) => {

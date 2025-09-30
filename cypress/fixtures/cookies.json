@@ -1,0 +1,12 @@
+[
+  {
+    "name": "cf_clearance",
+    "value": "JAAbPrXDTkMo1DFlA5jGynZmEjVY2xxynEmDYRaBy4Y-1759241475-1.2.1.1-WqGdULgdBue78XY3YM9UtPtLYZ7Vtf8bBLpCBQl09UISy2vZ9UuWlI.kATg3MMe1_lo0mKYtLrndGbsg11QEXCtbdzBXh0RuS2b79VR2jKUqlEHhIpVu7lIgn2dzgUDHQpS_JJgIn5CLdsjqGpiSMLZrTj4Rtlnd5gC71vVYx_6wD.zrAkDEXYtcvaO9ksMN5biN5T1gp5ff.yHbrBEC.6PmghKDrEtesC.wN5PnpGY",
+    "path": "/",
+    "secure": true,
+    "httpOnly": true,
+    "expiry": 1790777476.302772,
+    "domain": ".practicesoftwaretesting.com",
+    "sameSite": "no_restriction"
+  }
+]

@@ -7,5 +7,10 @@ export default defineConfig({
     },
 
     baseUrl: "https://practicesoftwaretesting.com/",
+    viewportWidth: 1366,
+    viewportHeight: 768,
+    video: true,
+    screenshotOnRunFailure: true,
+    retries: 1, // re-run flaky tests
   },
 });

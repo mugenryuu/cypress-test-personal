@@ -21,7 +21,7 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                sh 'xvfb-run -a npx cypress run --browser chrome --headless'
+                sh 'xvfb-run -a npx cypress run --browser electron --headless'
             }
         }
 

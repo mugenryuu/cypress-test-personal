@@ -2,15 +2,14 @@ pipeline {
     agent any
 
     tools {
-        nodejs "NodeJS"
+        nodejs 'NodeJs'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    credentialsId: 'github-creds', // remove if repo is public
-                    url: 'https://github.com/yourusername/your-repo.git'
+                    url: 'https://github.com/mugenryuu/cypress-test-personal.git'
             }
         }
 
@@ -22,17 +21,22 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                sh 'npx cypress run --browser chrome --headless'
+                sh 'xvfb-run -a npx cypress run --browser electron --headless'
             }
         }
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_SCANNER_HOME = tool 'sonar-scanner'
+                SCANNER_HOME = tool 'sonar-scanner'
             }
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
+                    sh '''$SCANNER_HOME/bin/sonar-scanner \
+                        -Dsonar.projectKey=cypress-practice \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.login=$SONAR_AUTH_TOKEN
+                    '''
                 }
             }
         }

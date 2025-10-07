@@ -2,15 +2,14 @@ pipeline {
     agent any
 
     tools {
-        nodejs "NodeJS"
+        nodejs 'NodeJs'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    credentialsId: 'github-creds', // remove if repo is public
-                    url: 'https://github.com/yourusername/your-repo.git'
+                    url: 'https://github.com/mugenryuu/cypress-test-personal.git'
             }
         }
 
@@ -22,24 +21,31 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                sh 'npx cypress run --browser chrome --headless'
+                sh 'xvfb-run -a npx cypress run --browser electron --headless'
             }
         }
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_SCANNER_HOME = tool 'sonar-scanner'
+                SCANNER_HOME = tool 'sonar-scanner'
+                SONAR_TOKEN = credentials('sonarqube-token')
             }
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                    npx sonar-scanner \
+                        -Dsonar.projectKey=cypress-test-personal \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://4abd55b400a2.ngrok-free.app \
+                        -Dsonar.login=$SONAR_TOKEN
+                    '''
                 }
             }
         }
 
         stage('Quality Gate') {
             steps {
-                timeout(time: 1, unit: 'MINUTES') {
+                timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }

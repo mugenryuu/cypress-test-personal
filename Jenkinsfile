@@ -28,14 +28,16 @@ pipeline {
         stage('SonarQube Analysis') {
             environment {
                 SCANNER_HOME = tool 'sonar-scanner'
+                SONAR_TOKEN = credentials('sonarqube-token')
             }
             steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner \
-                        -Dsonar.projectKey=cypress-practice \
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                    npx sonar-scanner \
+                        -Dsonar.projectKey=cypress-test-personal \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=http://localhost:9000 \
-                        -Dsonar.login=$SONAR_AUTH_TOKEN
+                        -Dsonar.login=$SONAR_TOKEN
                     '''
                 }
             }

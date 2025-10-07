@@ -36,7 +36,7 @@ pipeline {
                     npx sonar-scanner \
                         -Dsonar.projectKey=cypress-test-personal \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.host.url=https://4abd55b400a2.ngrok-free.app \
                         -Dsonar.login=$SONAR_TOKEN
                     '''
                 }

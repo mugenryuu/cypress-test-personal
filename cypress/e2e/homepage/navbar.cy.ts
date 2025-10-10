@@ -1,6 +1,6 @@
 import { navLinks } from "../../support/page_objects/NavBar";
 
-describe("Home Page", () => {
+describe("Nav Bar", () => {
     before(() => {
         cy.loginBypass();
     })

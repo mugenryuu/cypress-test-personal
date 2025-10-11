@@ -58,8 +58,9 @@ Cypress.Commands.add("checkAccount", () => {
     const status = intercept.response?.statusCode;
 
     if (status && status >= 400) {
-      cy.registerAccount();
-      cy.loginBypass();
+      cy.registerAccount().then(() => {
+        cy.loginBypass();
+      });
     }
 
     else {

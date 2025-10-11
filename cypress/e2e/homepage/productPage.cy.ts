@@ -2,11 +2,12 @@ import { productDetails } from "../../support/page_objects/ProductDetails";
 
 describe("Product page", () => {
     beforeEach(() => {
-        cy.checkAccount();
-        cy.readFile("cypress/fixtures/cookies.json").then((cookies) => {
-            cookies.forEach((cookie: Cypress.Cookie) => {
-                cy.setCookie(cookie.name, cookie.value, {
-                    domain: cookie.domain,
+        cy.checkAccount().then(() => {
+            cy.readFile("cypress/fixtures/cookies.json").then((cookies) => {
+                cookies.forEach((cookie: Cypress.Cookie) => {
+                    cy.setCookie(cookie.name, cookie.value, {
+                        domain: cookie.domain,
+                    });
                 });
             });
         });

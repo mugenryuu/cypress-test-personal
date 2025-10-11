@@ -50,7 +50,7 @@ describe("Product page", () => {
         })
     });
 
-    it.only('should be able to update product count in cart', () => {
+    it('should be able to update product count in cart', () => {
         cy.visit('/');
         cy.addToCart();
         cy.wait(5000);

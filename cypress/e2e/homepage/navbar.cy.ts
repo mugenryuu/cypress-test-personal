@@ -1,11 +1,8 @@
 import { navLinks } from "../../support/page_objects/NavBar";
 
-describe("Nav Bar", () => {
-    before(() => {
-        cy.loginBypass();
-    })
-
+describe("Nav Bar", () => {    
     beforeEach(() => {
+        cy.checkAccount();
         cy.readFile("cypress/fixtures/cookies.json").then((cookies) => {
             cookies.forEach((cookie: Cypress.Cookie) => {
                 cy.setCookie(cookie.name, cookie.value, {

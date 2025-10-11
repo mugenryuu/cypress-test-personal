@@ -1,12 +1,8 @@
 import { User, UsersFixture } from "../../../types";
 
 describe("Login Page", () => {
-    before(() => {
-        cy.loginBypass();
-    })
-
-    
     beforeEach(() => {
+        cy.checkAccount();
         cy.readFile("cypress/fixtures/cookies.json").then((cookies) => {
             cookies.forEach((cookie: Cypress.Cookie) => {
                 cy.setCookie(cookie.name, cookie.value, {

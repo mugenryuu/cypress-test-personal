@@ -6,5 +6,18 @@
   "invalidUser": {
     "email": "notuser@gmail.com",
     "password": "wrongpassword"
+  },
+  "registerUser": {
+    "firstName": "someone",
+    "lastName": "someone",
+    "dob": "1998-06-23",
+    "street": "Street",
+    "postalcode": "400",
+    "city": "Malolos",
+    "state": "Bulacan",
+    "country": "Philippines (the)",
+    "phone": "09178888888",
+    "email": "someone@gmail.com",
+    "password": "Zll^oJJFM#bF0m"
   }
 }

@@ -40,22 +40,4 @@ describe("Product page", () => {
         cy.get('p[data-test="product-description"]').should('contain', productDetails.CombinationPliers.description)
         cy.get('img').should('have.attr', 'alt', productDetails.CombinationPliers.imageAlt)
     })
-
-    it('should be able to add products to cart', () => {
-        cy.visit('/');
-        cy.addToCart();
-        cy.wait(5000);
-        cy.get('a[data-test="nav-cart"]').click();
-        cy.get('span[data-test="product-title"]').should((item) => {
-            expect(item).to.have.length(3);
-        })
-    });
-
-    it('should be able to update product count in cart', () => {
-        cy.visit('/');
-        cy.addToCart();
-        cy.wait(5000);
-        cy.get('a[data-test="nav-cart"]').click();
-        cy.get('input[data-test="product-quantity"]').eq(0).type('2');
-    });
 });

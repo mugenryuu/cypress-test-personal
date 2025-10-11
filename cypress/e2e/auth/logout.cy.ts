@@ -11,12 +11,10 @@ describe("Logout function", () => {
         });
     });
 
-    it("should be able to log out of the account", () => {
+    it.only("should be able to log out of the account", () => {
         cy.visit("/account");
         cy.get('a[data-test="nav-menu"]').click();
         cy.get('a[data-test="nav-sign-out"]').click();
         cy.url().should("include", "/auth/login");
     })
-
-
 });

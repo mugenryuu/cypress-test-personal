@@ -67,6 +67,7 @@ Cypress.Commands.add("checkAccount", () => {
       cy.getCookies().then((cookies) => {
         cy.writeFile("cypress/fixtures/cookies.json", cookies);
       });
+      cy.wait(5000);
     }
   })
 })

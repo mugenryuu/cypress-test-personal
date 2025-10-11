@@ -1,11 +1,11 @@
 [
   {
     "name": "cf_clearance",
-    "value": "L8VbnnNu..IFT4eXXQFKtoJ_gE_0k6kl9kjdJHnsByI-1760166292-1.2.1.1-PxtmqJiLdYzO3BIZuj2bi0Va6NTItwTkXn5Me_P4fVUmRW7nyovxTuSVAGjFqtTz02am_l9MLU9CLYECeF2Ei_8S3PJZM5l7PxMnv28jsc52OwmIMRcO_PANJJLADJN66sGZE9AZIOzU71ofniUX9nYroxdYdXJMBbGnHMJXMae40vLhVaRJfVbeQWxfsIsSLtkvszT6d86fZbPQpow8ndCNRftWnvBYxiQ.Ske25jE",
+    "value": "x1KzRcS67d.O0t9nDDY1VjrfhFlb4QZahyVMVMQQY3o-1760176016-1.2.1.1-ydiWaAN0Pbv1vJya.Jq_9cwHwxpVfVPsZ1s1GqlNX.wUx3YkksRugAyQwHbBAfHE3B7r346NtxzXz5vQIZ0PSLoKmkoq4v27YCNGW0.JcPthy2mq1dL2bDqmMhJlXTCa56w8FGYo4ruyR7Z7Dml7Qg2MHxHDY8sIDTtXJq.Mlgz5FMJl_7sQXxkmx97qm9KwezKZuaQna4bZUSOktSFjsXL_wZWp2UB8pg5ejMseGIo",
     "path": "/",
     "secure": true,
     "httpOnly": true,
-    "expiry": 1791702293.375577,
+    "expiry": 1791712016.204426,
     "domain": ".practicesoftwaretesting.com",
     "sameSite": "no_restriction"
   }

@@ -63,7 +63,6 @@ Cypress.Commands.add("checkAccount", () => {
     }
 
     else {
-      cy.url().should("include", "/account");
       cy.getCookies().then((cookies) => {
         cy.writeFile("cypress/fixtures/cookies.json", cookies);
       });

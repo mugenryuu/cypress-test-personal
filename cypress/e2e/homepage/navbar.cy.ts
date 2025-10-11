@@ -2,18 +2,21 @@ import { navLinks } from "../../support/page_objects/NavBar";
 
 describe("Nav Bar", () => {    
     beforeEach(() => {
-        cy.checkAccount();
-        cy.readFile("cypress/fixtures/cookies.json").then((cookies) => {
-            cookies.forEach((cookie: Cypress.Cookie) => {
-                cy.setCookie(cookie.name, cookie.value, {
-                    domain: cookie.domain,
+        cy.checkAccount().then(() => {
+            cy.readFile("cypress/fixtures/cookies.json").then((cookies) => {
+                cookies.forEach((cookie: Cypress.Cookie) => {
+                    cy.setCookie(cookie.name, cookie.value, {
+                        domain: cookie.domain,
+                    });
                 });
             });
         });
-    }); 
+    });
 
     it('should be able to load the page of every navigation bar links', () => {
         cy.visit('/')
+        cy.addToCart();
+        cy.wait(3000);
         navLinks.forEach((link) => {
             if(link.parent) {
                 cy.get(link.parent).click();
